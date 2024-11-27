@@ -1,18 +1,42 @@
 :root {
-  --main-bg: #eff4f8;
+  --main-bg: #c8cdd0;
+  color: #adb8be;
   --main-bg-svg: url("../assets/tic-tac-toe_light.svg");
+  --main-fg: #c6c0f0;
+  --main-fg-transparent: #c9d4d8ca;
   --font: #1b1c1f;
+  --a-not-visited: #171e34;
+  --a-visited: #571355;
+  --accent: #6d071d;
 }
 :root.dark {
-  --main-bg: #133651;
+  --main-bg: #0b2335;
   --main-bg-svg: url("../assets/tic-tac-toe_dark.svg");
+  --main-fg: #221e38;
+  --main-fg-transparent: #12101bad;
   --font: #e4e7f1;
+  --a-not-visited: #94abf5;
+  --a-visited: #f478c4;
+  --accent: #f21d4b;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--a-not-visited);
+}
+
+a:visited {
+  color: var(--a-visited);
+}
+
+a:hover {
+  color: var(--accent);
 }
 
 body {
@@ -33,6 +57,44 @@ main {
   background-position: 20% 20%;
   background-size: 4%;
   width: 100%;
-  height: 90dvh;
+  min-height: 90dvh;
   padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+main > section {
+  width: 50%;
+  min-height: 600px;
+  margin-top: 30px;
+  background: var(--main-fg-transparent);
+  border-radius: 5px;
+}
+
+#context-container {
+  outline: 1px solid green;
+  padding: 20px 30px;
+}
+
+#game-container {
+  outline: 1px solid yellow;
+}
+
+#rules-ul {
+  padding-left: 10px;
+  margin-bottom: 50px;
+}
+
+#rules-ul li {
+  margin: 10px;
+  padding: 0;
+}
+
+.rules-ul-heading {
+  display: inline-block;
+  font-size: 1.1em;
+  padding: 0;
+  margin: 5px;
 }
