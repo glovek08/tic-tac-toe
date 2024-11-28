@@ -2,7 +2,7 @@
   --main-bg: #c8cdd0;
   color: #adb8be;
   --main-bg-svg: url("../assets/tic-tac-toe_light.svg");
-  --main-fg: #c6c0f0;
+  --main-fg: #d4d5d9;
   --main-fg-transparent: #c9d4d8ca;
   --font: #1b1c1f;
   --a-not-visited: #171e34;
@@ -12,12 +12,36 @@
 :root.dark {
   --main-bg: #0b2335;
   --main-bg-svg: url("../assets/tic-tac-toe_dark.svg");
-  --main-fg: #221e38;
+  --main-fg: #1d1930;
   --main-fg-transparent: #12101bad;
   --font: #e4e7f1;
   --a-not-visited: #94abf5;
   --a-visited: #f478c4;
   --accent: #f21d4b;
+}
+
+@font-face {
+  font-family: Monofur;
+  src: url("../assets/fonts/MonofurNF.woff") format("woff"),
+    url("../assets/fonts/MonofurNF.woff2") format("woff2"),
+    url("../assets/fonts/MonofurNF.ttf") format("tff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* @font-face {
+  font-family: "Danger on the motorway";
+  src: url("../assets/fonts/DangerOnTheMotorway-xV10.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+} */
+@font-face {
+  font-family: Ozone;
+  src: url("../assets/fonts/Ozone-xRRO.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 *,
@@ -52,6 +76,8 @@ body {
 
 main {
   outline: 1px solid red;
+  font-family: Monofur;
+  font-size: 1.2em;
   background-color: var(--main-bg);
   background-image: var(--main-bg-svg);
   background-position: 20% 20%;
@@ -60,29 +86,52 @@ main {
   min-height: 90dvh;
   padding: 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   gap: 20px;
+}
+
+h1 {
+  font-size: 2.5em;
+  padding: 0;
+  margin: 10px 5px 0 5px;
+  text-align: center;
+}
+
+#context-container-motto {
+  text-align: center;
+  margin: 0;
 }
 
 main > section {
   flex: 1 1 600px;
   width: 50%;
   max-width: 900px;
-  min-height: 600px;
+  min-height: 800px;
   margin-top: 30px;
-  background: var(--main-fg-transparent);
   border-radius: 5px;
 }
 
 #context-container {
   outline: 1px solid green;
+  background: var(--main-fg-transparent);
   padding: 20px 30px;
 }
 
 #game-container {
   outline: 1px solid yellow;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 30px;
+}
+
+#game-rules {
+  height: 100%;
+  min-height: 600px;
 }
 
 #rules-ul {
@@ -94,10 +143,103 @@ main > section {
   margin: 10px;
   padding: 0;
 }
+#rules-ul li::marker {
+  color: var(--accent);
+}
+
+#game-rules-summary {
+  text-align: right;
+  padding: 10px 30px;
+}
 
 .rules-ul-heading {
   display: inline-block;
+  text-decoration: underline;
   font-size: 1.1em;
   padding: 0;
   margin: 5px;
+}
+
+#gameboard {
+  outline: 1px solid red;
+  background: var(--main-fg);
+  border-radius: 10px;
+  width: 530px;
+  height: 500px;
+}
+
+#game-scoreboard {
+  border: 1px solid var(--font);
+  background: var(--main-fg-transparent);
+  min-height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+#scoreboard-toolbox {
+  outline: 1px solid red;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+#timer {
+  border: 1px solid var(--font);
+  min-width: 190px;
+  width: 30%;
+  height: 80px;
+  background: black;
+  margin-bottom: 5px;
+  font-size: 3.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-left: 7px;
+}
+
+#new-game-btn {
+  margin: auto;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.5em;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.scoreboard-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid var(--font);
+  width: 30%;
+  min-height: 50px;
+  height: 100px;
+}
+.scoreboard-box h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.score-display {
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: auto;
+  width: 60%;
+  height: 50px;
+  border: 1px solid var(--font);
+  font-size: 2em;
+}
+.led-style {
+  color: rgb(226, 70, 27);
+  text-align: center;
+  font-family: Ozone;
+  text-shadow: 0 0 10px red;
 }

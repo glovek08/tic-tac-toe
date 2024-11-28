@@ -13,7 +13,7 @@
     <main>
       <section id="context-container">
         <h1>Tic-Tac-Toe!</h1>
-        <p>Play the Classic!</p>
+        <p id="context-container-motto">Play the Classic!</p>
         <article id="game-rules">
           <h3 id="rules-heading">Rules of the Game:</h3>
           <ul id="rules-ul">
@@ -41,13 +41,30 @@
               ends in a draw.
             </li>
           </ul>
-          <p>That's it. Simple, fun, and strategic!</p>
-          <div id="play-button-container">
+        </article>
+        <p id="game-rules-summary">That's it. Simple, fun, and strategic!</p>
+      </section>
+      <section id="game-container">
+        <div id="gameboard"></div>
+        <div id="game-scoreboard">
+          <div id="player-score" class="scoreboard-box">
+            <h3>HOME</h3>
+            <div id="player-score-display" class="score-display led-style">
+              00
+            </div>
+          </div>
+          <div id="scoreboard-toolbox">
+            <div id="timer" class="led-style">05:00</div>
             <button id="new-game-btn">NEW GAME</button>
           </div>
-        </article>
+          <div id="computer-score" class="scoreboard-box">
+            <h3>GUEST</h3>
+            <div id="computer-score-display" class="score-display led-style">
+              00
+            </div>
+          </div>
+        </div>
       </section>
-      <section id="game-container"></section>
     </main>
     <footer>
       <p>
