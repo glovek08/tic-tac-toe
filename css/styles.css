@@ -5,14 +5,14 @@
   --main-fg: #d4d5d9;
   --main-fg-transparent: #c9d4d8ca;
   --font: #1b1c1f;
-  --a-not-visited: #171e34;
-  --a-visited: #571355;
-  --accent: #6d071d;
+  --a-not-visited: #00259f;
+  --a-visited: #750571;
+  --accent: #a00627;
 }
 :root.dark {
   --main-bg: #0b2335;
   --main-bg-svg: url("../assets/tic-tac-toe_dark.svg");
-  --main-fg: #1d1930;
+  --main-fg: #131024;
   --main-fg-transparent: #12101bad;
   --font: #e4e7f1;
   --a-not-visited: #94abf5;
@@ -29,6 +29,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 /* @font-face {
   font-family: "Danger on the motorway";
   src: url("../assets/fonts/DangerOnTheMotorway-xV10.ttf");
@@ -36,6 +37,7 @@
   font-style: normal;
   font-display: swap;
 } */
+
 @font-face {
   font-family: Ozone;
   src: url("../assets/fonts/Ozone-xRRO.ttf");
@@ -206,8 +208,13 @@ main > section {
   margin: auto;
   font-family: "Courier New", Courier, monospace;
   font-size: 1.5em;
-  padding: 5px 15px;
+  padding: 5px 15px 2.5px 15px;
   cursor: pointer;
+  color: white;
+  background: var(--green);
+  border: 2px solid var(--font);
+  border-radius: 5px;
+  font-weight: 900;
 }
 
 .scoreboard-box {

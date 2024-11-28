@@ -6,6 +6,7 @@
     <meta name="color-scheme" content="light dark" />
     <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/new-game-btn.css" />
     <script src="Javascript/script.js" defer></script>
   </head>
   <body>
@@ -55,7 +56,11 @@
           </div>
           <div id="scoreboard-toolbox">
             <div id="timer" class="led-style">05:00</div>
-            <button id="new-game-btn">NEW GAME</button>
+            <button class="new-game-btn-pushable" role="button">
+              <span class="new-game-btn-shadow"></span>
+              <span class="new-game-btn-edge"></span>
+              <span class="new-game-btn-front text"> NEW GAME </span>
+            </button>
           </div>
           <div id="computer-score" class="scoreboard-box">
             <h3>GUEST</h3>
@@ -75,6 +80,24 @@
           rel="noopener noreferrer"
           >heropatterns</a
         >.
+      </p>
+      <p>
+        Scoreboad font by
+        <a
+          href="https://www.fontspace.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Fontspace.</a
+        >
+      </p>
+      <p>
+        New Game Btn by
+        <a
+          href="https://www.joshwcomeau.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Josh Comeau.</a
+        >
       </p>
     </footer>
   </body>
