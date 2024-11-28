@@ -1,6 +1,5 @@
 :root {
   --main-bg: #c8cdd0;
-  color: #adb8be;
   --main-bg-svg: url("../assets/tic-tac-toe_light.svg");
   --main-fg: #d4d5d9;
   --main-fg-transparent: #c9d4d8ca;
@@ -8,6 +7,7 @@
   --a-not-visited: #00259f;
   --a-visited: #750571;
   --accent: #a00627;
+  --light-contrast: #3a3b42;
 }
 :root.dark {
   --main-bg: #0b2335;
@@ -18,6 +18,7 @@
   --a-not-visited: #94abf5;
   --a-visited: #f478c4;
   --accent: #f21d4b;
+  --light-contrast: #5e627c;
 }
 
 @font-face {
@@ -37,6 +38,10 @@
   font-style: normal;
   font-display: swap;
 } */
+
+/*
+  NOS QUEDAMOS EN EL BOTON. FALTA: Footer, logica del tictactoe.
+*/
 
 @font-face {
   font-family: Ozone;
@@ -166,8 +171,29 @@ main > section {
   outline: 1px solid red;
   background: var(--main-fg);
   border-radius: 10px;
-  width: 530px;
-  height: 500px;
+  width: 90%;
+  aspect-ratio: 1/0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 20px solid var(--main-fg);
+}
+
+#gameboard-table {
+  flex-shrink: 0;
+  border: 10px solid (--light-contrast);
+  background: var(--light-contrast);
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border-collapse: separate;
+  border-spacing: 3px;
+}
+#gameboard-table tr {
+}
+#gameboard-table td {
+  background: var(--main-fg);
+  padding: 5px;
 }
 
 #game-scoreboard {
