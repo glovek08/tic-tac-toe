@@ -91,7 +91,7 @@ main {
   background-size: 4%;
   width: 100%;
   min-height: 90dvh;
-  padding: 20px;
+  padding: 20px 90px;
   display: flex;
   align-items: flex-end;
   justify-content: center;

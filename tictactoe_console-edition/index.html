@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TicTacToe Test</title>
+  </head>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #aeaeae;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100dvw;
+    }
+    #gameboard {
+      margin: 50px;
+      width: clamp(250px, 500px, 90dvw);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+    .cell {
+      outline: 1px solid white;
+      width: 100%;
+      aspect-ratio: 1/1;
+    }
+    .player {
+      background-color: rgb(169, 169, 251);
+    }
+    .bot {
+      background-color: rgb(252, 156, 156);
+    }
+  </style>
+
+  <body>
+    <div id="gameboard"></div>
+    <div id="turn">Player Turn</div>
+  </body>
+
+  <script>
+    console.log("Hello!");
+    const gameboardDiv = document.querySelector("#gameboard");
+    const turnDiv = document.querySelector("#turn");
+    let currentTurn = "player-turn";
+
+    let gameboard = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    for (let i = 0; i < gameboard.length; i++) {
+      gameboardDiv.appendChild(createCell(i));
+    }
+
+    function createCell(cellIndex) {
+      const gameCell = document.createElement("button");
+      gameCell.classList.add("cell");
+      return gameCell;
+    }
+  </script>
+</html>
