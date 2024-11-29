@@ -58,7 +58,44 @@
     function createCell(cellIndex) {
       const gameCell = document.createElement("button");
       gameCell.classList.add("cell");
+      gameCell.dataset.index = cellIndex;
+      gameCell.addEventListener("click", (event) => {
+        //for each cell attach an event that will test if the event's dataset.index position in gameboard is 0 (not yet picked).
+        const currentCellValue = gameboard[cellIndex];
+
+        //si el valor de la casilla actual NO es 0 (o sea esta tomada), salimos.
+        if (currentCellValue !== 0) {
+          console.log("Already picked cell");
+          turnDiv.textContent = "Already Picked";
+          return;
+        }
+
+        //si es 1 o 2: cambiar el valor del indice actual dentro de gameboard al retorno de changeTurn, cambiar de turno, aplicar las clases.
+        if (currentTurn === "bot-turn") {
+          gameCell.classList.add("bot");
+          gameboard[cellIndex] = changeTurn();
+          return;
+        } else {
+          gameCell.classList.add("player");
+          gameboard[cellIndex] = changeTurn();
+          return;
+        }
+        return;
+      });
       return gameCell;
     }
+    const changeTurn = () => {
+      if (currentTurn === "player-turn") {
+        turnDiv.textContent = "Bot Turn";
+        currentTurn = "bot-turn";
+        console.log("Bot's Turn");
+        return 1;
+      } else if (currentTurn === "bot-turn") {
+        turnDiv.textContent = "Player Turn";
+        currentTurn = "player-turn";
+        console.log("Player's Turn");
+        return 2;
+      }
+    };
   </script>
 </html>
