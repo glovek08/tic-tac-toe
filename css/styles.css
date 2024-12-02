@@ -115,7 +115,7 @@ main > section {
   flex: 1 1 600px;
   width: 50%;
   max-width: 900px;
-  min-height: 800px;
+  min-height: min-content;
   margin-top: 30px;
   border-radius: 5px;
 }
@@ -138,7 +138,7 @@ main > section {
 
 #game-rules {
   height: 100%;
-  min-height: 600px;
+  min-height: 400px;
 }
 
 #rules-ul {
@@ -173,27 +173,16 @@ main > section {
   border-radius: 10px;
   width: 90%;
   aspect-ratio: 1/0.9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border: 20px solid var(--main-fg);
+  width: clamp(250px, 500px, 90dvw);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
-#gameboard-table {
-  flex-shrink: 0;
-  border: 10px solid (--light-contrast);
-  background: var(--light-contrast);
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
-  border-collapse: separate;
-  border-spacing: 3px;
-}
-#gameboard-table tr {
-}
-#gameboard-table td {
-  background: var(--main-fg);
-  padding: 5px;
+.cell {
+  outline: 1px solid rgb(255, 18, 18);
+  width: 100%;
+  aspect-ratio: 1/1;
 }
 
 #game-scoreboard {
