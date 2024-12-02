@@ -5,12 +5,34 @@
 })();
 
 function Gameboard() {
-
+  let currentTurn = 'player-turn';
   let board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
   //    0 1 2
   //    3 4 5
   //    6 7 8
+
+  const setBoardValue = (cellIndex) => {
+    if(currentTurn === 'player-turn') {
+      board[cellIndex] = 1;
+      console.log(board);
+      changeTurn();
+    } else {
+      board[cellIndex] = 2;
+      changeTurn();
+      console.log(board);
+    }
+  }
+
+  const changeTurn = () => {
+    if (currentTurn === 'player-turn') {
+      currentTurn = 'bot-turn';
+      return;
+    } else {
+      currentTurn = 'player-turn';
+      return;
+    }
+  }
 
   const WIN_COMBINATIONS = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], //rows
@@ -27,6 +49,17 @@ function Gameboard() {
         gameboardCell.dataset.index = index;
         gameboardCell.classList.add("cell");
         gameboardDiv.appendChild(gameboardCell);
+
+        //creating the onclick event for each
+        gameboardCell.addEventListener('click', () => {
+          //if the value in board array of the clicked cell is not 0. It means that its taken.
+          if (board[index] === 0){
+            setBoardValue(index);
+          }
+          else {
+            console.log("Can't change cell value!");
+          }
+        })
       });
     },
   };
