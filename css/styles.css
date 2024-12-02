@@ -128,6 +128,8 @@ main > section {
 
 #game-container {
   outline: 1px solid yellow;
+  width: fit-content;
+  max-width: 95dvw;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -168,8 +170,9 @@ main > section {
 }
 
 #gameboard {
-  outline: 1px solid red;
-  background: var(--main-fg);
+  /* outline: 1px solid red; */
+  background: var(--light-contrast);
+  border: 20px solid var(--main-bg);
   border-radius: 10px;
   width: 90%;
   aspect-ratio: 1/0.9;
@@ -177,12 +180,23 @@ main > section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px;
 }
 
 .cell {
-  outline: 1px solid rgb(255, 18, 18);
+  /* outline: 1px solid rgb(255, 18, 18); */
+  background: var(--main-bg);
   width: 100%;
+  cursor: pointer;
   aspect-ratio: 1/1;
+  border: none;
+  transition: filter 100ms ease-in-out;
+}
+.cell:hover {
+  filter: saturate(1.5);
+}
+.cell:active {
+  filter: brightness(0.9);
 }
 
 #game-scoreboard {
