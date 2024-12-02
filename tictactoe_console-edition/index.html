@@ -50,6 +50,17 @@
     let currentTurn = "player-turn";
 
     let gameboard = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    //WINNING_COMBINATIONS contains all the possible combinations to win a game.
+    const WINNING_COMBINATIONS = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
 
     for (let i = 0; i < gameboard.length; i++) {
       gameboardDiv.appendChild(createCell(i));
@@ -70,14 +81,17 @@
           return;
         }
 
-        //si es 1 o 2: cambiar el valor del indice actual dentro de gameboard al retorno de changeTurn, cambiar de turno, aplicar las clases.
+        //si es 1 o 2: cambiar el valor del indice actual dentro de gameboard al retorno de changeTurn,
+        // cambiar de turno, aplicar las clases.
         if (currentTurn === "bot-turn") {
           gameCell.classList.add("bot");
           gameboard[cellIndex] = changeTurn();
+          checkWin(gameboard);
           return;
         } else {
           gameCell.classList.add("player");
           gameboard[cellIndex] = changeTurn();
+          checkWin(gameboard);
           return;
         }
         return;
@@ -96,6 +110,26 @@
         console.log("Player's Turn");
         return 2;
       }
+    };
+    const checkWin = (gameboard) => {
+      for (let combination of WINNING_COMBINATIONS) {
+        if (
+          gameboard[combination[0]] === 1 &&
+          gameboard[combination[1]] === 1 &&
+          gameboard[combination[2]] === 1
+        ) {
+          window.alert("PLAYER WINS!");
+          return;
+        } else if (
+          gameboard[combination[0]] === 2 &&
+          gameboard[combination[1]] === 2 &&
+          gameboard[combination[2]] === 2
+        ) {
+          window.alert("BOT WINS!");
+          return;
+        }
+      }
+      return; //No one wins.
     };
   </script>
 </html>
