@@ -1,13 +1,16 @@
 :root {
-  --main-bg: #c8cdd0;
+  --main-bg: #d5d9dc;
   --main-bg-svg: url("../assets/tic-tac-toe_light.svg");
-  --main-fg: #d4d5d9;
-  --main-fg-transparent: #c9d4d8ca;
+  --main-fg: #f7f7f7;
+  --main-fg-transparent: #e3eaedca;
   --font: #1b1c1f;
   --a-not-visited: #00259f;
   --a-visited: #750571;
-  --accent: #a00627;
+  --accent: #cd0531;
   --light-contrast: #3a3b42;
+  --cell-hover: #f4c0b4;
+  --player-cell-bg: rgb(120, 233, 49);
+  --bot-cell-bg: rgb(221, 17, 17);
 }
 :root.dark {
   --main-bg: #0b2335;
@@ -19,6 +22,7 @@
   --a-visited: #f478c4;
   --accent: #f21d4b;
   --light-contrast: #5e627c;
+  --cell-hover: #706cde;
 }
 
 @font-face {
@@ -172,7 +176,7 @@ main > section {
 #gameboard {
   /* outline: 1px solid red; */
   background: var(--light-contrast);
-  border: 20px solid var(--main-bg);
+  border: 20px solid var(--main-fg);
   border-radius: 10px;
   width: 90%;
   aspect-ratio: 1/0.9;
@@ -185,7 +189,7 @@ main > section {
 
 .cell {
   /* outline: 1px solid rgb(255, 18, 18); */
-  background: var(--main-bg);
+  background: var(--main-fg);
   width: 100%;
   cursor: pointer;
   aspect-ratio: 1/1;
@@ -193,10 +197,17 @@ main > section {
   transition: filter 100ms ease-in-out;
 }
 .cell:hover {
-  filter: saturate(1.5);
+  background: var(--cell-hover);
 }
 .cell:active {
-  filter: brightness(0.9);
+  filter: brightness(0.8);
+}
+
+.player-cell {
+  background: var(--player-cell-bg);
+}
+.bot-cell {
+  background: var(--bot-cell-bg);
 }
 
 #game-scoreboard {
