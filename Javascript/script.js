@@ -45,6 +45,7 @@ function Gameboard() {
         board[combination[2]] === 1
       ) {
         window.alert("PLAYER WINS!");
+        resetBoard();
         return;
       } else if (
         board[combination[0]] === 2 &&
@@ -52,10 +53,21 @@ function Gameboard() {
         board[combination[2]] === 2
       ) {
         window.alert("BOT WINS!");
+        resetBoard();
         return;
       }
     }
   };
+
+  const resetBoard = () => {
+    const gameboardCells = document.querySelectorAll('.cell');
+    for (let i = 0; i < gameboardCells.length; i++) {
+      gameboardCells[i].classList = 'cell';
+      board[i] = 0;
+      console.log(`Cell #${gameboardCells[i].dataset.index} reset.`);
+    }
+    console.log(board+" after reset.");
+  }
 
   const changeTurn = () =>
     (currentTurn = currentTurn === "player-turn" ? "bot-turn" : "player-turn");
