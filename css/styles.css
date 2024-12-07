@@ -241,7 +241,6 @@ main > section {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-left: 7px;
 }
 
 #new-game-btn {
@@ -289,4 +288,5 @@ main > section {
   text-align: center;
   font-family: Ozone;
   text-shadow: 0 0 10px red;
+  padding-left: 7px;
 }
