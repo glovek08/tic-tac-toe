@@ -5,11 +5,12 @@
 })();
 
 function Gameboard() {
-  const playerScoreDisplay = document.querySelector('#player-score-display');
-  const botScoreDisplay = document.querySelector('#bot-score-display');
+  const playerScoreDisplay = document.querySelector("#player-score-display");
+  const botScoreDisplay = document.querySelector("#bot-score-display");
   let currentTurn = "player-turn";
   let playerWinCounter = 0;
   let botWinCounter = 0;
+  let turnCounter = 0;
 
   let board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
@@ -38,29 +39,26 @@ function Gameboard() {
     }
   };
 
+  //prettier-ignore
   const checkWin = () => {
     console.log("gameboard inside checkWin: " + board);
     for (let combination of WIN_COMBINATIONS) {
-      if (
-        board[combination[0]] === 1 &&
-        board[combination[1]] === 1 &&
-        board[combination[2]] === 1
-      ) {
+      if ( board[combination[0]] === 1 && board[combination[1]] === 1 && board[combination[2]] === 1 ) {
         window.alert("PLAYER WINS!");
         console.log();
         setWinCounter(1);
         resetBoard();
         return;
-      } else if (
-        board[combination[0]] === 2 &&
-        board[combination[1]] === 2 &&
-        board[combination[2]] === 2
-      ) {
+      } else if ( board[combination[0]] === 2 && board[combination[1]] === 2 && board[combination[2]] === 2 ) {
         window.alert("BOT WINS!");
         setWinCounter(2);
         resetBoard();
         return;
       }
+    }
+    if (turnCounter === 9) {
+      window.alert('DRAW!');
+      resetBoard();
     }
   };
 
@@ -79,13 +77,14 @@ function Gameboard() {
     } else if (option === 3) {
       playerWinCounter = 0;
       playerScoreDisplay.textContent = playerWinCounter;
-      botWinCounter = 0
+      botWinCounter = 0;
       botScoreDisplay.textContent = botWinCounter;
     }
-  }
+  };
 
   const resetBoard = () => {
     const gameboardCells = document.querySelectorAll(".cell");
+    turnCounter = 0;
     for (let i = 0; i < gameboardCells.length; i++) {
       gameboardCells[i].classList = "cell";
       board[i] = 0;
@@ -95,8 +94,7 @@ function Gameboard() {
     console.log(`Player: ${playerWinCounter}\nBot: ${botWinCounter}`);
   };
 
-  const changeTurn = () =>
-    (currentTurn = currentTurn === "player-turn" ? "bot-turn" : "player-turn");
+  const changeTurn = () => currentTurn = currentTurn === "player-turn" ? "bot-turn" : "player-turn";
 
   return {
     generateBoard: function () {
@@ -117,6 +115,7 @@ function Gameboard() {
             } else {
               gameboardCell.classList.add("bot-cell");
             }
+            turnCounter++;
             setBoardValue(index);
           } else {
             console.log("Can't change cell value!");
@@ -134,4 +133,5 @@ Gameboard().generateBoard();
   3 - Style each cell onclick.
   4 - Find a way to display a "O" or an "X".
   5 - Implement bot logic.
+  6 - Handle Draw.
 */
