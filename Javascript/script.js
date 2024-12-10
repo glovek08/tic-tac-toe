@@ -53,7 +53,7 @@ function Gameboard() {
         window.alert("BOT WINS!");
         setWinCounter(2);
         resetBoard();
-        return;
+        return; 
       }
     }
     if (turnCounter === 9) {
@@ -66,7 +66,7 @@ function Gameboard() {
     /*
       option 1 = player wins.
       option 2 = bot wins.
-      option 3 = win score and display reset.
+      option 3 = win score and display reset. Use this when creating a new game.
     */
     if (option === 1) {
       playerWinCounter++;
@@ -96,9 +96,30 @@ function Gameboard() {
 
   const changeTurn = () => currentTurn = currentTurn === "player-turn" ? "bot-turn" : "player-turn";
 
+  const createCellIcon = (playerOption) => {
+    //If the player option is "player" it returns the svg containing the circle. Otherwise it's the bot's X.
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 120 120");
+    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    if (playerOption === "player") {
+      const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      circle.setAttribute("cx", "60");
+      circle.setAttribute("cy", "60");
+      circle.setAttribute("r", "50");
+      svg.appendChild(circle);
+    } else {
+      return window.alert('This is an X');
+      //Continue doing the code for the X. Return the X. Mind the dimensions, use the variable for the bot color.
+    }
+    return svg;
+  }
+
   return {
     generateBoard: function () {
       const gameboardDiv = document.querySelector("#gameboard");
+
+      //CREATING THE SVG FOR THE PLAYER:
+
       //for each element in board, we create a new button element that will store its index in a dataset.
       board.forEach((el, index) => {
         const gameboardCell = document.createElement("button");
@@ -111,9 +132,10 @@ function Gameboard() {
           // If the value in board array of the clicked cell is not 0. It means that its taken.
           if (board[index] === 0) {
             if (currentTurn === "player-turn") {
-              gameboardCell.classList.add("player-cell");
+              gameboardCell.appendChild(createCellIcon('player'));
+              // gameboardCell.classList.add("player-cell");
             } else {
-              gameboardCell.classList.add("bot-cell");
+              // gameboardCell.classList.add("bot-cell");
             }
             turnCounter++;
             setBoardValue(index);
@@ -131,7 +153,9 @@ Gameboard().generateBoard();
   1 - [DONE] Implement winning condition. (check the test-project, use the winning combinations).
   2 - [DONE] Create logic to control the style of each cell depending on who owns it.
   3 - Style each cell onclick.
-  4 - Find a way to display a "O" or an "X".
+  4 - Find a way to display a "O" or an "X":
+        Create a SVG both for X and O for the button with display: none,
+        switch display when click according to the cell's value.
   5 - Implement bot logic.
-  6 - Handle Draw.
+  6 - [DONE] Handle Draw.
 */
