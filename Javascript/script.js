@@ -87,6 +87,11 @@ function Gameboard() {
     turnCounter = 0;
     for (let i = 0; i < gameboardCells.length; i++) {
       gameboardCells[i].classList = "cell";
+
+      //Removing the X/O SVG's
+      while (gameboardCells[i].firstChild) {
+        gameboardCells[i].removeChild(gameboardCells[i].firstChild);
+      }
       board[i] = 0;
       console.log(`Cell #${gameboardCells[i].dataset.index} reset.`);
     }
