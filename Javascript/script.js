@@ -97,7 +97,7 @@ function Gameboard() {
   const changeTurn = () => currentTurn = currentTurn === "player-turn" ? "bot-turn" : "player-turn";
 
   const createCellIcon = (playerOption) => {
-    //If the player option is "player" it returns the svg containing the circle. Otherwise it's the bot's X.
+    //If playerOption is "player" it returns the svg containing the circle. Otherwise it's the bot's X.
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("viewBox", "0 0 120 120");
     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
@@ -107,9 +107,26 @@ function Gameboard() {
       circle.setAttribute("cy", "60");
       circle.setAttribute("r", "50");
       svg.appendChild(circle);
-    } else {
-      return window.alert('This is an X');
-      //Continue doing the code for the X. Return the X. Mind the dimensions, use the variable for the bot color.
+    } else if (playerOption === 'bot') {
+      svg.setAttribute("class", "animate-cross-strokes");
+      //First line of the Cross.
+      const lineA = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      lineA.setAttribute("x1", "20");  //20
+      lineA.setAttribute("y1", "20");  //20
+      lineA.setAttribute("x2", "105"); //105
+      lineA.setAttribute("y2", "105"); //105
+      lineA.setAttribute('class', "lineA");
+      //Second line of the Cross.
+      const lineB = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      lineB.setAttribute("x1", "105"); //105
+      lineB.setAttribute("y1", "20");  //20
+      lineB.setAttribute("x2", "20");  //20
+      lineB.setAttribute("y2", "105"); //105
+      //DONT FUCKING MESS WITH THE COORDINATES.
+      lineB.setAttribute("class", "lineB");
+
+      svg.appendChild(lineA);
+      svg.appendChild(lineB);
     }
     return svg;
   }
@@ -117,8 +134,6 @@ function Gameboard() {
   return {
     generateBoard: function () {
       const gameboardDiv = document.querySelector("#gameboard");
-
-      //CREATING THE SVG FOR THE PLAYER:
 
       //for each element in board, we create a new button element that will store its index in a dataset.
       board.forEach((el, index) => {
@@ -135,6 +150,7 @@ function Gameboard() {
               gameboardCell.appendChild(createCellIcon('player'));
               // gameboardCell.classList.add("player-cell");
             } else {
+              gameboardCell.appendChild(createCellIcon('bot'));
               // gameboardCell.classList.add("bot-cell");
             }
             turnCounter++;
@@ -152,10 +168,11 @@ Gameboard().generateBoard();
   TODO:
   1 - [DONE] Implement winning condition. (check the test-project, use the winning combinations).
   2 - [DONE] Create logic to control the style of each cell depending on who owns it.
-  3 - Style each cell onclick.
-  4 - Find a way to display a "O" or an "X":
-        Create a SVG both for X and O for the button with display: none,
+  3 - [DONE] Style each cell onclick.
+  4 - [DONE] Find a way to display a "O" or an "X":
+        Dynamically create an SVG both for X and O for the cell button,
         switch display when click according to the cell's value.
   5 - Implement bot logic.
   6 - [DONE] Handle Draw.
+  7 - Implement Strike-through winning combination.
 */
