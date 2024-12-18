@@ -82,7 +82,7 @@ body {
 }
 
 main {
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
   font-family: Monofur;
   font-size: 1.2em;
   background-color: var(--main-bg);
@@ -121,15 +121,14 @@ main > section {
 }
 
 #context-container {
-  outline: 1px solid green;
+  /* outline: 1px solid green; */
   background: var(--main-fg-transparent);
   padding: 20px 30px;
 }
 
 #game-container {
-  outline: 1px solid yellow;
+  /* outline: 1px solid yellow; */
   width: fit-content;
-  max-width: 95dvw;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -211,13 +210,16 @@ main > section {
   background: var(--main-fg-transparent);
   min-height: 200px;
   width: 100%;
+  max-width: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 #scoreboard-toolbox {
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
   min-height: 150px;
   display: flex;
   align-items: center;
