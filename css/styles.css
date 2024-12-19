@@ -93,7 +93,7 @@ main {
   background-size: 4%;
   width: 100%;
   min-height: 90dvh;
-  padding: 20px 90px;
+  padding: 20px 90px 90px 90px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -289,6 +289,62 @@ main > section {
   font-family: Ozone;
   text-shadow: 0 0 10px red;
   padding-left: 7px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+}
+#footer-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  gap: 5px;
+}
+
+#footer-wrapper p {
+  margin: 5px 10px;
+}
+
+#footer-sources {
+  width: clamp(100px, 40%, 300px);
+  font-size: 0.9em;
+}
+#footer-hr {
+  height: 50px;
+  background: var(--font);
+  width: 2px;
+  border-radius: 10px;
+}
+
+#footer-links {
+  width: clamp(100px, 25%, 300px);
+  padding: 10px;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#footer-links .fa-brands {
+  color: var(--font);
+  transition: transform 100ms ease-out;
+  display: block;
+}
+
+#footer-links .fa-brands:hover {
+  transform: scale(1.2);
+  color: var(--accent);
+}
+
+#footer-links .fa-brands:visited {
+  color: var(--font);
 }
 
 svg {
