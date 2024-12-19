@@ -9,7 +9,7 @@
   --accent: #cd0531;
   --light-contrast: #3a3b42;
   --cell-hover: #f4c0b4;
-  --player-cell-bg: rgb(120, 233, 49);
+  --player-cell-bg: rgb(67, 150, 16);
   --bot-cell-bg: rgb(221, 17, 17);
 }
 :root.dark {

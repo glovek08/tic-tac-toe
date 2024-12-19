@@ -32,6 +32,7 @@ function Gameboard() {
     setWinCounter(3);
     resetBoard();
     isCountdown = false;
+    currentTurn = "player-turn"
   });
 
   const setBoardValue = (cellIndex) => {
@@ -215,16 +216,4 @@ function Gameboard() {
   };
 }
 Gameboard().generateBoard();
-/*
-  TODO:
-  1 - [DONE] Implement winning condition. (check the test-project, use the winning combinations).
-  2 - [DONE] Create logic to control the style of each cell depending on who owns it.
-  3 - [DONE] Style each cell onclick.
-  4 - [DONE] Find a way to display a "O" or an "X":
-        Dynamically create an SVG both for X and O for the cell button,
-        switch display when click according to the cell's value.
-  5 - Implement bot logic.
-  6 - [DONE] Handle Draw.
-  7 - Implement Strike-through winning combination.
-  8 - Handle countdown [DONE].
-*/
+
