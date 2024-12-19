@@ -13,8 +13,8 @@ function Gameboard() {
   let playerWinCounter = 0;
   let botWinCounter = 0; 
   let turnCounter = 0; //The counter for each turn, e.g: Player clicks on a cell, that's turnCounter++.
-  let isCountdown = false; //Used to control wether the countdown has been initiated.
-
+  let isCountdown = false; //Used to control whether the countdown has been initiated.
+ 
   let board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
   //    0 1 2
