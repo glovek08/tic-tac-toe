@@ -32,18 +32,17 @@ function Gameboard() {
     setWinCounter(3);
     resetBoard();
     isCountdown = false;
-    currentTurn = "player-turn"
   });
 
   const setBoardValue = (cellIndex) => {
     if (currentTurn === "player-turn") {
       board[cellIndex] = 1;
-      console.log(board);
+      // console.log(board);
       checkWin();
       changeTurn();
     } else {
       board[cellIndex] = 2;
-      console.log(board);
+      // console.log(board);
       checkWin();
       changeTurn();
     }
@@ -51,11 +50,10 @@ function Gameboard() {
 
   //prettier-ignore
   const checkWin = () => {
-    console.log("gameboard inside checkWin: " + board);
+    // console.log("gameboard inside checkWin: " + board);
     for (let combination of WIN_COMBINATIONS) {
       if ( board[combination[0]] === 1 && board[combination[1]] === 1 && board[combination[2]] === 1 ) {
         window.alert("PLAYER WINS!");
-        console.log();
         setWinCounter(1);
         resetBoard();
         return;
@@ -115,6 +113,7 @@ function Gameboard() {
 
   const resetBoard = () => {
     const gameboardCells = document.querySelectorAll(".cell");
+    currentTurn = "player-turn";
     turnCounter = 0;
     isCountdown = false;
     for (let i = 0; i < gameboardCells.length; i++) {
@@ -125,10 +124,10 @@ function Gameboard() {
         gameboardCells[i].removeChild(gameboardCells[i].firstChild);
       }
       board[i] = 0;
-      console.log(`Cell #${gameboardCells[i].dataset.index} reset.`);
+      // console.log(`Cell #${gameboardCells[i].dataset.index} reset.`);
     }
-    console.log(board + " after reset.");
-    console.log(`Player: ${playerWinCounter}\nBot: ${botWinCounter}`);
+    // console.log(board + " after reset.");
+    // console.log(`Player: ${playerWinCounter}\nBot: ${botWinCounter}`);
   };
 
   const changeTurn = () =>

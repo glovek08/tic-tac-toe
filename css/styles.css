@@ -22,7 +22,9 @@
   --a-visited: #f478c4;
   --accent: #f21d4b;
   --light-contrast: #5e627c;
-  --cell-hover: #706cde;
+  --cell-hover: #353452;
+  --player-cell-bg: rgb(108, 223, 37);
+  --bot-cell-bg: rgb(238, 41, 41);
 }
 
 @font-face {
