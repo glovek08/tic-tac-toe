@@ -60,7 +60,7 @@
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   color: var(--a-not-visited);
 }
 
@@ -337,6 +337,9 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+#footer-links a {
+  text-decoration: none;
 }
 
 #footer-links .fa-brands {

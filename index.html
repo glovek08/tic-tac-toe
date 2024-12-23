@@ -16,33 +16,33 @@
   </head>
   <body>
     <header></header>
-    <main>
+    <main role="main">
       <section id="context-container">
         <h1>Tic-Tac-Toe!</h1>
-        <p id="context-container-motto">Play the Classic!</p>
+        <h2 id="context-container-motto">Play the Classic!</h2>
         <article id="game-rules">
           <h3 id="rules-heading">Rules of the Game:</h3>
           <ul id="rules-ul">
             <li>
-              <h5 class="rules-ul-heading">Objective:</h5>
+              <h4 class="rules-ul-heading">Objective:</h4>
               Be the first player to get three of your symbols (X or O) in a row
               horizontally, vertically, or diagonally.
             </li>
             <li>
-              <h5 class="rules-ul-heading">Setup:</h5>
+              <h4 class="rules-ul-heading">Setup:</h4>
               The game is played on a 3x3 grid.
             </li>
             <li>
-              <h5 class="rules-ul-heading">Turns:</h5>
+              <h4 class="rules-ul-heading">Turns:</h4>
               Players take turns placing their symbol in an empty square.
             </li>
             <li>
-              <h5 class="rules-ul-heading">Winning:</h5>
+              <h4 class="rules-ul-heading">Winning:</h4>
               The first player to align three of their symbols in a row, column,
               or diagonal wins.
             </li>
             <li>
-              <h5 class="rules-ul-heading">Draw:</h5>
+              <h4 class="rules-ul-heading">Draw:</h4>
               If all squares are filled and no one has three in a row, the game
               ends in a draw.
             </li>
@@ -60,8 +60,14 @@
             </div>
           </div>
           <div id="scoreboard-toolbox">
-            <div id="timer" class="led-style">5:00</div>
-            <button class="new-game-btn-pushable" role="button">
+            <div id="timer" class="led-style" role="timer" aria-live="polite">
+              5:00
+            </div>
+            <button
+              class="new-game-btn-pushable"
+              role="button"
+              aria-label="New game button"
+            >
               <span class="new-game-btn-shadow"></span>
               <span class="new-game-btn-edge"></span>
               <span class="new-game-btn-front text"> NEW GAME </span>
@@ -74,7 +80,7 @@
         </div>
       </section>
     </main>
-    <footer>
+    <footer role="contentinfo">
       <div id="footer-wrapper">
         <div id="footer-sources">
           <p>

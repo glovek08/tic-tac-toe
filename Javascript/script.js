@@ -185,6 +185,7 @@ function Gameboard() {
       board.forEach((el, index) => {
         const gameboardCell = document.createElement("button");
         gameboardCell.dataset.index = index;
+        gameboardCell.ariaLabel = `cell number ${index}`;
         gameboardCell.classList.add("cell");
         gameboardDiv.appendChild(gameboardCell);
 
