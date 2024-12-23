@@ -140,7 +140,6 @@ main > section {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  max-width: 100%;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -447,6 +446,9 @@ line {
 @media screen and (max-width: 500px) {
   main {
     padding: 5px;
+  }
+  #game-container {
+    max-width: 100%;
   }
 }
 @media screen and (max-width: 410px) {
