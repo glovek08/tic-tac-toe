@@ -139,6 +139,7 @@ function Gameboard() {
   const createCellIcon = (playerOption) => {
     //If playerOption is "player" it returns the svg containing the circle. Otherwise it's the bot's X.
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.classList.add("cell-svg");
     svg.setAttribute("viewBox", "0 0 120 120");
     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     if (playerOption === "player") {
@@ -151,7 +152,7 @@ function Gameboard() {
       circle.setAttribute("r", "50");
       svg.appendChild(circle);
     } else if (playerOption === "bot") {
-      svg.setAttribute("class", "animate-cross-strokes");
+      svg.classList.add("animate-cross-strokes");
       //First line of the Cross.
       const lineA = document.createElementNS(
         "http://www.w3.org/2000/svg",
