@@ -59,6 +59,11 @@
   box-sizing: border-box;
 }
 
+*:focus {
+  outline: 5px solid var(--accent);
+  border-radius: 5px;
+}
+
 a {
   text-decoration: underline;
   color: var(--a-not-visited);
