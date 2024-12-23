@@ -1,8 +1,11 @@
 (function updateColorScheme() {
+  const favicon = document.querySelector("#favicon");
   const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const rootElement = document.documentElement;
   rootElement.classList = isDarkMode ? "dark" : "";
+  favicon.href = isDarkMode ? "/assets/tic-tac-toe-favicon-light.svg" : "/assets/tic-tac-toe-favicon-dark.svg";
 })();
+
 
 function Gameboard() {
   const playerScoreDisplay = document.querySelector("#player-score-display");
