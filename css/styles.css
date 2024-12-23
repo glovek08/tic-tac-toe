@@ -59,7 +59,7 @@
   box-sizing: border-box;
 }
 
-*:focus {
+*:focus-visible {
   outline: 5px solid var(--accent);
   border-radius: 5px;
 }
