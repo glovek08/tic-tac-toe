@@ -4,15 +4,121 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="Play a classic 2-player Tic-Tac-Toe game. Challenge your friends, beat the clock, and keep track of your wins in this classic casual game!"
+    />
     <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/new-game-btn.css" />
     <script src="Javascript/script.js" defer></script>
     <script
       src="https://kit.fontawesome.com/1b73c2ec6e.js"
       crossorigin="anonymous"
       defer
     ></script>
+    <style>
+      :root {
+        --green: #2c842f;
+        --green-shadow: #134c16;
+      }
+      :root.dark {
+        --green: #069720;
+        --green-shadow: #1e5a29;
+      }
+
+      .new-game-btn-pushable {
+        position: relative;
+        border: none;
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+        outline-offset: 4px;
+        transition: filter 250ms;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        margin-top: 10px;
+      }
+
+      .new-game-btn-shadow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        background: hsl(0deg 0% 0% / 0.25);
+        will-change: transform;
+        transform: translateY(2px);
+        transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+      }
+
+      .new-game-btn-edge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        background: linear-gradient(
+          to left,
+          var(--green-shadow) 0%,
+          var(--green-shadow) 8%,
+          var(--green-shadow) 92%,
+          var(--green-shadow) 100%
+        );
+      }
+
+      .new-game-btn-front {
+        display: block;
+        position: relative;
+        padding: 12px 27px;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: bolder;
+        color: white;
+        background: var(--green);
+        will-change: transform;
+        transform: translateY(-4px);
+        transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+      }
+
+      @media (min-width: 768px) {
+        .new-game-btn-front {
+          font-size: 1.25rem;
+          padding: 12px 42px;
+        }
+      }
+
+      .new-game-btn-pushable:hover {
+        filter: brightness(110%);
+        -webkit-filter: brightness(110%);
+      }
+
+      .new-game-btn-pushable:hover .new-game-btn-front {
+        transform: translateY(-6px);
+        transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+      }
+
+      .new-game-btn-pushable:active .new-game-btn-front {
+        transform: translateY(-2px);
+        transition: transform 34ms;
+      }
+
+      .new-game-btn-pushable:hover .new-game-btn-shadow {
+        transform: translateY(4px);
+        transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+      }
+
+      .new-game-btn-pushable:active .new-game-btn-shadow {
+        transform: translateY(1px);
+        transition: transform 34ms;
+      }
+
+      .new-game-btn-pushable:focus:not(:focus-visible) {
+        outline: none;
+      }
+    </style>
   </head>
   <body>
     <header></header>
