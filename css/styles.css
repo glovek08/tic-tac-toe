@@ -140,6 +140,7 @@ main > section {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  max-width: 100%;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -217,6 +218,11 @@ main > section {
 }
 .bot-cell {
   background: var(--bot-cell-bg);
+}
+
+.cell-svg {
+  width: 100%;
+  height: 100%;
 }
 
 #game-scoreboard {
@@ -309,6 +315,7 @@ footer {
   justify-content: center;
   flex-direction: column;
   padding: 10px;
+  max-width: 100dvw;
 }
 #footer-wrapper {
   width: 100%;
@@ -324,6 +331,7 @@ footer {
 }
 
 #footer-sources {
+  /* outline: 1px solid red; */
   width: clamp(100px, 40%, 300px);
   font-size: 0.9em;
 }
@@ -331,6 +339,7 @@ footer {
   height: 50px;
   background: var(--font);
   width: 2px;
+  margin: 5px;
   border-radius: 10px;
 }
 
@@ -432,5 +441,30 @@ line {
 @keyframes draw-line-b {
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  main {
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 410px) {
+  #game-scoreboard {
+    overflow: auto;
+  }
+  #timer {
+    min-width: 100%;
+    font-size: 1.8em;
+  }
+  #footer-sources {
+    width: 100%;
+  }
+  #footer-wrapper {
+    flex-direction: column;
+  }
+  #footer-hr {
+    width: 100%;
+    height: 2px;
   }
 }
